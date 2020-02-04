@@ -1,5 +1,5 @@
 """models.py"""
-
+from django.contrib.auth.models import User
 from django.db import models
 from assignment.models import Student, Grade
 
@@ -32,7 +32,6 @@ SEMESTER = (
 class User(User):
     student = models.BooleanField(default=False)
     teacher = models.BooleanField(default=False)
-    email = models.EmailField(blank=True,null=True)
 
     def get_full_name(self):
         full_name = self.username
@@ -42,8 +41,8 @@ class User(User):
 
 class Session(models.Model):
     session = models.CharField(max_length=200, unique=True)
-    is_current_session = models.BooleanField(default=False, blank=true, null=True)
-    next_session_begins = models.DateField(black=true, null=True)
+    is_current_session = models.BooleanField(default=False, blank=True, null=True)
+    next_session_begins = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.session
@@ -52,7 +51,7 @@ class Semester(models.Model):
     semester = models.CharField(max_length=10, choices=SEMESTER, blank=True)
     is_current_semester = models.BooleanField(default=False, blank=True, null=True)
     session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True)
-    next_semester_begins = models.DateField(null=true,blank=True)
+    next_semester_begins = models.DateField(null=True,blank=True)
 
     def __str__ (self):
         return self.semester
