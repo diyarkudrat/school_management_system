@@ -56,10 +56,35 @@ class Session(models.Model):
     def __str__(self):
         return self.session
 
+class Semester(models.Model):
+    semester = models.CharField(max_length=10, choices=SEMESTER, blank=True)
+    is_current_semester = models.BooleanField(default=False, blank=True, null=True)
+    session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True)
+    next_semester_begins = models.DataField(null=true,blank=True)
+
+    def __str__ (self):
+        return self.semester
+
 
 class Course(models.Model):
-    name = models.CharField(max_length=150)
-    students = models.ManyToManyField(Student)
+    course_name = models.CharField(max_length=150)
+    course_unit = models.CharField(max_length=150)
+    description = models.CharField(max_length=250)
+    semester = models.CharField(choices=SEMESTER, max_length=200)
+    is_elective = models.BooleanField(default=False, blank=True, null=True)
+
+    def __str__(self):
+        return self.course_name
+
+    def get_absolute_url(self):
+        return reverse('course_list', kwargs={'pk': self.pk})
+
+    def get_total_unit(self):
+        t = 0
+        total = Course.objects.all()
+        for unit in total:
+            t += unit
+        return unit
 
 
     def __str__(self):
