@@ -10,7 +10,7 @@ C = "C"
 D = "D"
 F = "F"
 PASS = "PASS"
-Fail = "FAIL"
+FAIL = "FAIL"
 
 GRADE = (
     (A, 'A'),
@@ -20,14 +20,6 @@ GRADE = (
     (F, 'F'),
 )
 
-LEVEL = (
-
-        ("100", 100),
-        ("200", 200),
-        ("300", 300),
-        ("400", 400),
-        ("500", 500),
-)
 FIRST = "First"
 SECOND = "Second"
 
@@ -51,7 +43,7 @@ class User(User):
 class Session(models.Model):
     session = models.CharField(max_length=200, unique=True)
     is_current_session = models.BooleanField(default=False, blank=true, null=True)
-    next_session_begins = models.DataField(black=true, null=True)
+    next_session_begins = models.DateField(black=true, null=True)
 
     def __str__(self):
         return self.session
@@ -60,7 +52,7 @@ class Semester(models.Model):
     semester = models.CharField(max_length=10, choices=SEMESTER, blank=True)
     is_current_semester = models.BooleanField(default=False, blank=True, null=True)
     session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True)
-    next_semester_begins = models.DataField(null=true,blank=True)
+    next_semester_begins = models.DateField(null=true,blank=True)
 
     def __str__ (self):
         return self.semester
