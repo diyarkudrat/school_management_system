@@ -46,6 +46,16 @@ class User(User):
         full_name = self.username
         if self.first_name and self.last_name:
             full_name = self.first_name + " " + self.last_name
+        return full_name
+
+class Session(models.Model):
+    session = models.CharField(max_length=200, unique=True)
+    is_current_session = models.BooleanField(default=False, blank=true, null=True)
+    next_session_begins = models.DataField(black=true, null=True)
+
+    def __str__(self):
+        return self.session
+
 
 class Course(models.Model):
     name = models.CharField(max_length=150)
