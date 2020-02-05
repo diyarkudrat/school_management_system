@@ -1,7 +1,6 @@
 """models.py"""
 from django.contrib.auth.models import User
 from django.db import models
-from assignment.models import Student, Grade
 
 
 A = "A"
@@ -29,15 +28,22 @@ SEMESTER = (
 )
 
 
-# class User(User):
-#     student = models.BooleanField(default=False)
-#     teacher = models.BooleanField(default=False)
+class User(User):
+    student_access = models.BooleanField(default=False)
+    teacher_access = models.BooleanField(default=False)
 
-#     def get_full_name(self):
-#         full_name = self.username
-#         if self.first_name and self.last_name:
-#             full_name = self.first_name + " " + self.last_name
-#         return full_name
+    def get_full_name(self):
+        full_name = self.username
+        if self.first_name and self.last_name:
+            full_name = self.first_name + " " + self.last_name
+        return full_name
+
+class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    id_number = models.CharField(max_length=20, unique=True)
+
+    def __str__(self):
+        return self.id_number
 
 class Session(models.Model):
     session = models.CharField(max_length=200, unique=True)
