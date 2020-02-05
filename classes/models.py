@@ -29,15 +29,15 @@ SEMESTER = (
 )
 
 
-class User(User):
-    student = models.BooleanField(default=False)
-    teacher = models.BooleanField(default=False)
+# class User(User):
+#     student = models.BooleanField(default=False)
+#     teacher = models.BooleanField(default=False)
 
-    def get_full_name(self):
-        full_name = self.username
-        if self.first_name and self.last_name:
-            full_name = self.first_name + " " + self.last_name
-        return full_name
+#     def get_full_name(self):
+#         full_name = self.username
+#         if self.first_name and self.last_name:
+#             full_name = self.first_name + " " + self.last_name
+#         return full_name
 
 class Session(models.Model):
     session = models.CharField(max_length=200, unique=True)
@@ -79,4 +79,4 @@ class Course(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.course_name
