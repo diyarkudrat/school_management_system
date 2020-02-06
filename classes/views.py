@@ -10,7 +10,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 def home(request):
 
     students = Student.objects.all().count()
-    staff = User.objects.filter(is_lectue=True).count()
+    staff = User.objects.filter(is_lecturer=True).count()
     courses = Course.objects.all()
     current_semester = Semester.objects.get(is_current_semester=True)
 
