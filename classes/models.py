@@ -102,7 +102,7 @@ class Assignment(models.Model):
 class Course(models.Model):
     course_name = models.CharField(max_length=150)
     description = models.CharField(max_length=250)
-    assigments = models.ManyToManyField(Assignment, blank=True)
+    assigments = models.ManyToManyField(Assignment, blank=True, null=True)
 
     def __str__(self):
         return self.course_name

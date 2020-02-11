@@ -3,7 +3,9 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import User, Course, Semester, Student
 from django.views.generic import CreateView, UpdateView, DeleteView
-from .decorators import lecturer_required, student_required
+from django.views.generic.list import ListView
+from .decorators import student_required
+from django.utils.decorators import method_decorator
 
 
 
@@ -102,6 +104,47 @@ def profile_update(request):
             })
 
     return render(request, 'profile_update.html', {'form': form})
+
+
+@method_decorator([login_required], name='dispatch')
+class CourseListView(ListView):
+    
+    model = Course
+
+    def get(self, request):
+        courses = self.get_queryset()
+        return render(request, 'course_list.html', {
+          'courses': courses,
+        })
+
+
+@login_required
+# @lecturer_required
+def student_list(request):
+    
+    students = Student.objects.all()
+    user_type = "Student"
+
+    context = {
+        'students': students,
+        'user_type': user_type,
+    }
+    return render(request, 'student_list.html', context)
+
+@login_required
+# @lecturer_required
+def staff_list(request):
+
+    staff = User.objects.filter(teacher_access=True)
+    user_type = 'Staff'
+
+    context = {
+        'staff': staff,
+        'user_type': user_type,
+    }
+    return render(request, 'staff_list.html', context)
+
+
 
 
 
