@@ -15,14 +15,13 @@ def home(request):
     staff = User.objects.filter(teacher_access=True).count()
     courses = Course.objects.all()
     current_semester = Semester.objects.get(is_current_semester=True)
-
     context = {
         'total_students': students,
         'total_staff': staff,
         'total_courses': courses
     }
 
-    return render(request, 'home.html', context)
+    return render(request, 'classes/home.html', context)
 
 @login_required
 def profile(request):
@@ -42,7 +41,7 @@ def profile(request):
         return render(request, 'profile.html', context)
     else:
         staff = User.objects.filter(teacher_access=True)
-        return render(request, 'profile.html', { 'staff': staff })
+        return render(request, 'classes/profile.html', { 'staff': staff })
 
 @login_required
 def user_profile(request, id):
