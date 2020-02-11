@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Hello world</h1>
+
+total students: {{ total_students }}<br>
+
+total teachers: {{ total_staff }}<br>
+
+total courses: {{ total_courses }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Dashboard |Schooly</title>
+    <!-- css externals -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- js externals -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<style>
+*{
+    font-family: Quicksand;
+}
+.footer-row ul>li{
+    list-style-type: none;
+}
+.footer-row a{
+    color: white;
+}
+.copyright{
+    text-align: center;
+    padding: 5px;
+}
+.student-grid{
+    background:#007aff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+section{
+    /* -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75); */
+}
+.student-grid a{
+    color:white;
+    background:rgb(71, 71, 71);
+    padding: 12px;
+    width: 70%;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0.8rem;
+}
+.student-grid a:hover{
+    background: black;
+    transition: ease .5s
+}
+</style>
+<body>
+<nav style="background:rgb(57, 55, 224);"class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" style="color: white; "href="#">Schooly</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="login.html">login<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">about</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">contact</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            </ul>
+        </div>
+        </nav>
+    <h1 style="text-align: center;">Student Dashboard</h1>
+    <section id='student-info' style="background: rgb(35, 35, 35); color:white; padding: 1rem; margin: 2rem;">
+        <div class="row">
+            <div class="col-3">
+                <img style=" border-radius:100%; width: 80px;"src="https://yt3.ggpht.com/a/AGF-l7_k1lZ2v4ujHYzcZYiTXoBlnLsfsFrsGF1lBg=s288-c-k-c0xffffffff-no-rj-mo" alt="">
+            </div>
+            <div class="col-8">
+                <h2>Cassady Campbell</h2>
+                <h3>Track: Data Science</h3>
+            </div>
+        </div>
+    </section>
+    <section style="margin:2rem;">
+        <div class="student-grid">
+            <a href="">Grades</a>
+            <a href="">Attendance</a>
+            <a href="assignment.html">Assignments</a>
+            <a href="add-course.html">Add Class</a>
+
+        </div>
+    </section>
+    <footer style="background:#005fc5; color: white; ">
+            <div class="container" style="padding: 1rem;">
+                <div class="footer-row row">
+                    <div class="col">
+                        <h3>SCHOOLY</h3>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Assignments</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li><a href="add-course.html">Add courses</a></li>
+                            <li><a href="">Careers</a></li>
+                            <li><a href="">Contact Us</a></li>
+                        </ul>    
+                    </div>
+                </div>
+        </div>
+            <div class="copyright" style="background:rgb(11, 10, 124);">
+                    <p>©2020  Schooly. All Rights Reserved.</p>
+            </div>    
+    </footer>            
+</body>
+</html>
+{% endblock %}
