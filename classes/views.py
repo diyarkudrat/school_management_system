@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import User, Course, Semester, Student
 from django.views.generic import CreateView, UpdateView, DeleteView
+from .decorators import lecturer_required, student_required
 
 
 
