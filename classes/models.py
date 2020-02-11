@@ -11,6 +11,11 @@ F = "F"
 PASS = "PASS"
 FAIL = "FAIL"
 
+COMMENT = (
+    (PASS, 'PASS'),
+    (FAIL, 'FAIL')
+)
+
 GRADE = (
     (A, 'A'),
     (B, 'B'),
@@ -26,6 +31,26 @@ SEMESTER = (
         (FIRST, "First"),
         (SECOND, "Second"),
 )
+
+Homework = 'Homework'
+Quiz = 'Quiz'
+Test ='Test'
+Midterm ='Midterm'
+Final = 'Final'
+Participation = 'Participation'
+
+
+ASSIGNMENT_TYPES = (
+        (Homework, 'Homework'),
+        (Quiz, 'Quiz'),
+        (Test, 'Test'),
+        (Midterm, 'Midterm'),
+        (Final, 'Final'),
+        (Participation, 'Participation')
+
+)
+
+
 
 
 class User(User):
@@ -45,30 +70,39 @@ class Student(models.Model):
     def __str__(self):
         return self.id_number
 
-class Session(models.Model):
-    session = models.CharField(max_length=200, unique=True)
-    is_current_session = models.BooleanField(default=False, blank=True, null=True)
-    next_session_begins = models.DateField(blank=True, null=True)
+# class Session(models.Model):
+#     session = models.CharField(max_length=200, unique=True)
+#     is_current_session = models.BooleanField(default=False, blank=True, null=True)
+#     next_session_begins = models.DateField(blank=True, null=True)
 
-    def __str__(self):
-        return self.session
+#     def __str__(self):
+#         return self.session
 
 class Semester(models.Model):
     semester = models.CharField(max_length=10, choices=SEMESTER, blank=True)
     is_current_semester = models.BooleanField(default=False, blank=True, null=True)
-    session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True)
+    # session = models.ForeignKey(Session, on_delete=models.CASCADE, blank=True, null=True)
     next_semester_begins = models.DateField(null=True,blank=True)
 
     def __str__ (self):
         return self.semester
 
+class Assignment(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=250)
+    # course = models.ForeignKey(Course, on_delete=models.CASCADE, blank=True, null=True )
+    assignment_type = models.CharField(max_length=30, choices=ASSIGNMENT_TYPES, blank=True)
+    total_points = models.PositiveIntegerField(blank=True, null=True, default=0)
+    assigned_date = models.DateField(blank=True, null=True)
+    due_date = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
 class Course(models.Model):
     course_name = models.CharField(max_length=150)
-    course_unit = models.CharField(max_length=150)
     description = models.CharField(max_length=250)
-    semester = models.CharField(choices=SEMESTER, max_length=200)
-    is_elective = models.BooleanField(default=False, blank=True, null=True)
+    assigments = models.ManyToManyField(Assignment, blank=True)
 
     def __str__(self):
         return self.course_name
@@ -76,13 +110,50 @@ class Course(models.Model):
     def get_absolute_url(self):
         return reverse('course_list', kwargs={'pk': self.pk})
 
-    def get_total_unit(self):
-        t = 0
-        total = Course.objects.all()
-        for unit in total:
-            t += unit
-        return unit
+
+class TakenCourse(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='taken_courses')
+    course_average = models.PositiveIntegerField(blank=True, null=True, default=0)
+    exam = models.PositiveIntegerField(blank=True, null=True, default=0)
+    total = models.PositiveIntegerField(blank=True, null=True, default=0)
+    grade = models.CharField(choices=GRADE, max_length=1, blank=True)
+    comment = models.CharField(choices=COMMENT, max_length=200, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('update_score', kwargs={'pk': self.pk})
 
 
-    def __str__(self):
-        return self.course_name
+    def get_total(self, course_average, exam):
+        return int(course_average) + int(exam)
+
+    def get_grade(self, course_average, exam):
+    	total = int(course_average) + int(exam)
+    	if total >= 90:
+    		grade = A
+    	elif total >= 80:
+    		grade = B
+    	elif total >=70:
+    		grade = C
+    	elif total >=60:
+    		grade = D
+    	else:
+    	 	grade = F
+    	return grade
+
+    def get_comment(self, grade):
+        if not grade == "F":
+            comment = PASS
+        else:
+            comment = FAIL
+        return comment
+
+
+
+
+    
+
+    
+
+
+
