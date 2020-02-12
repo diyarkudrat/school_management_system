@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+
+
 A = "A"
 B = "B"
 C = "C"
@@ -147,9 +149,3 @@ class TakenCourse(models.Model):
         else:
             comment = FAIL
         return comment
-        
-
-
-
-
-    
