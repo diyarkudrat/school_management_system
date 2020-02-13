@@ -92,7 +92,7 @@ class Semester(models.Model):
 class Assignment(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
-    # course = models.ForeignKey(Course, on_delete=models.CASCADE, blank=True, null=True )
+    course = models.ForeignKey('Course', on_delete=models.CASCADE, blank=True, null=True)
     assignment_type = models.CharField(max_length=30, choices=ASSIGNMENT_TYPES, blank=True)
     total_points = models.PositiveIntegerField(blank=True, null=True, default=0)
     assigned_date = models.DateField(blank=True, null=True)
@@ -104,7 +104,7 @@ class Assignment(models.Model):
 class Course(models.Model):
     course_name = models.CharField(max_length=150)
     description = models.CharField(max_length=250)
-    assigments = models.ManyToManyField(Assignment, blank=True, null=True)
+    assigments = models.ManyToManyField(Assignment, blank=True, null=True, related_name="course_assignments")
 
     def __str__(self):
         return self.course_name
