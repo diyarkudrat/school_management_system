@@ -7,4 +7,3 @@ urlpatterns = [
         path('courses/', views.CourseListView.as_view(), name="course-list"),
 
 ]
-
