@@ -10,6 +10,10 @@ from django.utils.decorators import method_decorator
 
 
 
+def landing_page(request):
+    return render(request, 'landing.html')
+
+
 @login_required
 def home(request):
 
