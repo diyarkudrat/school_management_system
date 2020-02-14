@@ -31,7 +31,7 @@
 }
 
 .hero-section{
-    color:white; 
+    color:white;
     background: url('https://i.postimg.cc/MH440MKZ/image-2.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -72,29 +72,29 @@ padding: 1rem;
 </style>
 <body>
     <nav class=" bg-primary navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" style="color: white; "href="#">Schooly</a>
+        <a class="navbar-brand" style="color: white; "href="{% url 'dashboard-page' %}">Schooly</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="login.html">login<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'login' %}">login<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">about</a>
+                <a class="nav-link" href="{% url 'about'%}">about</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">contact</a>
+                <a class="nav-link" href="{% url 'contact'%}">contact</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown link
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="{% url 'action' %}">Action</a>
+                <a class="dropdown-item" href="{% url 'another-action' %}">Another action</a>
+                <a class="dropdown-item" href="{% url 'something' %}">Something else here</a>
                 </div>
             </li>
             </ul>
@@ -104,7 +104,7 @@ padding: 1rem;
         <div class="container" style="text-align: left;">
           <h1 class="display-4">Do More.</h1>
           <h1 class="display-4">With Schooly.</h1>
-          <a href="" class="btn btn-lg btn-primary">Start Now</a>
+          <a href="{% url 'signup'%}" class="btn btn-lg btn-primary">Start Now</a>
         </div>
       </section>
       <section class="partners">
@@ -147,7 +147,7 @@ padding: 1rem;
       <section class="whyUs">
         <div class="container">
             <h1>Why Us</h1>
-            <div class="row">              
+            <div class="row">
                 <div class="col">
                     <img width="250" src="https://images.unsplash.com/photo-1574852859542-1b41217a7815?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="">
                 </div>
@@ -184,7 +184,7 @@ padding: 1rem;
                             </p>
                             <hr>
                             <p class="lead-4"><b>New York, NY</b></p>
-    
+
                         </div>
                   </div>
                   <div class="col">
@@ -196,7 +196,7 @@ padding: 1rem;
                             </p>
                             <hr>
                             <p class="lead-4"><b>San Diego, CA</b></p>
-    
+
                     </div>
                   </div>
               </div>
@@ -232,25 +232,25 @@ padding: 1rem;
                 </div>
                 <div class="col">
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Assignments</a></li>
+                        <li><a href="{%url 'dashboard-page'%}">Home</a></li>
+                        <li><a href="{%url 'about'%}">About</a></li>
+                        <li><a href="{%url 'assignments'%}">Assignments</a></li>
                     </ul>
                 </div>
                 <div class="col">
                     <ul>
-                        <li><a href="add-course.html">Add courses</a></li>
-                        <li><a href="">Careers</a></li>
-                        <li><a href="">Contact Us</a></li>
-                    </ul>    
+                        <li><a href="{%url 'add-class'%}">Add courses</a></li>
+                        <li><a href="{%url 'careers'%}">Careers</a></li>
+                        <li><a href="{%url 'contact'%}">Contact Us</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>    
+        </div>
     </div>
     <!-- social media links -->
     <div class="row text-center m-3">
         <div class="col-3">
-            <i class="fab fa-twitter"></i>  
+            <i class="fab fa-twitter"></i>
         </div>
         <div class="col-3">
             <i class="fab fa-reddit"></i>
@@ -264,6 +264,6 @@ padding: 1rem;
     </div>
         <div class="copyright" style="background:rgb(11, 10, 124);">
                 <p>©2020  Schooly. All Rights Reserved.</p>
-</footer>   
+</footer>
 </body>
 </html>

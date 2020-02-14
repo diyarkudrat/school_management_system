@@ -27,29 +27,29 @@
 </style>
 <body>
         <nav style="background:#0FA3B1;"class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" style="color: white; "href="#">Schooly</a>
+                <a class="navbar-brand" style="color: white; "href="{% url 'dashboard-page' %}">Schooly</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="login.html">login<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'login' %}">login<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">about</a>
+                        <a class="nav-link" href="{% url 'about' %}">about</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">contact</a>
+                        <a class="nav-link" href="{% url 'contact' %}">contact</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="{% url 'dropdown' %}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown link
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="{% url 'action' %}">Action</a>
+                        <a class="dropdown-item" href="{% url 'another-action' %}">Another action</a>
+                        <a class="dropdown-item" href="{% url 'something' %}">Something else here</a>
                         </div>
                     </li>
                     </ul>
@@ -80,23 +80,23 @@
             </div>
             <div class="col">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Assignments</a></li>
+                    <li><a href="{% url 'dashboard-page' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'assignments' %}">Assignments</a></li>
                 </ul>
             </div>
             <div class="col">
                 <ul>
-                    <li><a href="">Add courses</a></li>
-                    <li><a href="">Careers</a></li>
-                    <li><a href="">Contact Us</a></li>
-                </ul>    
+                    <li><a href="{% url 'add-class' %}">Add courses</a></li>
+                    <li><a href="{% url 'careers' %}">Careers</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
             </div>
         </div>
 </div>
     <div class="copyright" style="background: rgb(9, 110, 119);">
             <p>©2020  Schooly. All Rights Reserved.</p>
-    </div>    
+    </div>
 </footer>
 </body>
 
