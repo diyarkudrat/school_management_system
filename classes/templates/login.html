@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- this is john's comment -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
 </style>
 <body>
 <nav style="background:#0FA3B1;"class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" style="color: white; "href="#">Schooly</a>
+    <a class="navbar-brand" style="color: white; "href="{%url 'dashboard-page'%}">Schooly</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -59,7 +60,7 @@
                   <label for="exampleInputPassword1">Password</label>
                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
     </section>
