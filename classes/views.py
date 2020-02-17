@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .models import User, Course, Semester, Student
-from django.views.generic import CreateView, UpdateView, DeleteView
+from .models import User, Course, Semester, Student, Assignment
+from django.views.generic import CreateView, UpdateView, DeleteView, View
 from django.views.generic.list import ListView
 from .decorators import student_required
 from django.utils.decorators import method_decorator
+from .decorators import lecturer_required, student_required
 
 
 
@@ -121,9 +123,99 @@ class CourseListView(ListView):
           'courses': courses,
         })
 
+@method_decorator([login_required], name='dispatch')
+class CourseCreateView(CreateView):
+
+    model = Course
+
+    def get(self, request, *args, **kwargs):
+        context = {'form': CourseForm()}
+        return render(request, 'new_course.hmtl', context)
+
+    def post(self, request, *args, **kwargs):
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            player = form.save()
+            return HttpResponseRedirect('course-list-page')
+
+        return render(request, 'new_course.html', {'form': form})
+        
+@method_decorator([login_required], name='dispatch')
+class CourseDetailView(View):
+
+    def get(self, request, *args, **kwargs):
+        player = get_object_or_404(Player, pk=kwargs['pk'])
+        context = {'player': player}
+        return render(request, 'course_detail.html', context)
+
+@method_decorator([login_required], name='dispatch')
+class CourseEditView(UpdateView):
+    model = Course 
+    fields = ['course_name', 'description']
+
+    template_name = 'course_edit.html'
+    success_url = reverse_lazy('course-list-page')
+
+@method_decorator([login_required], name='dispatch')
+class CourseDeleteView(DeleteView):
+
+    model = Course
+    template_name = 'course_delete.html'
+    success_url = reverse_lazy('course-list-page')
+
+@method_decorator([login_required], name='dispatch')
+class AssignmentListView(ListView):
+
+    def get(self, request, *args, **kwargs):
+        course = get_object_or_404(Course, pk=kwargs['pk'])
+        assignments = Assignment.objects.filter(assignment__in=assignments, course=course)
+        context = {'course': course, 'assignments': assignments}
+        return render(request, 'assignments_list.html', context)
+
+@method_decorator([login_required], name='dispatch')
+class AssignmentCreateView(CreateView):
+
+    model = Assignment
+
+    def get(self, request, *args, **kwargs):
+        context = {'form': AssignmentForm()}
+        return render(request, 'assignment_new.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = AssignmentForm(request.POST)
+        if form.is_valid():
+            assignment = form.save()
+            return HttpResponseRedirect(reverse_lazy('assignment-list-page'))
+
+        return render(request, 'assignment_new.html', {'form': form})
+
+@method_decorator([login_required], name='dispatch')
+class AssignmentDetailView(View):
+
+    def get(self, request, *args, **kwargs):
+        assignment = get_object_or_404(Assignment, pk=kwargs['pk'])
+        context = {'assignment': assignment}
+        return render(request, 'assignment_detail.html', context)
+
+@method_decorator([login_required], name='dispatch')
+class AssignmentEditeView(UpdateView):
+
+    model = Assignment 
+    fields = ['name', 'description', 'course', 'assignment_type', 'total_points', 'assigned_date', 'due_date']
+
+    template_name = 'assignment_edit.html'
+    success_url = reverse_lazy('assignment-list-page')
+
+
+@method_decorator([login_required], name='dispatch')
+class AssignmentDeleteView(DeleteView):
+
+    model = Assignment 
+    template_name = 'assignment_delete.html'
+    success_url = reverse_lazy('assignment-list-page')
 
 @login_required
-# @lecturer_required
+@lecturer_required
 def student_list(request):
     
     students = Student.objects.all()
@@ -136,7 +228,7 @@ def student_list(request):
     return render(request, 'student_list.html', context)
 
 @login_required
-# @lecturer_required
+@lecturer_required
 def staff_list(request):
 
     staff = User.objects.filter(teacher_access=True)
