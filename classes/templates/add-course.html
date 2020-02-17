@@ -1,81 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-.footer-row ul>li{
-    list-style-type: none;
-}
-.footer-row a{
-    color: white;
-}
-.copyright{
-    text-align: center;
-    padding: 5px;
-}
-.card {
-    
-}
-input[type=checkbox] {
-         position: relative;
-	       cursor: pointer;
-    }
-    input[type=checkbox]:before {
-         content: "";
-         display: block;
-         position: absolute;
-         width: 30px;
-         height: 30px;
-         top: 0;
-         left: 0;
-         border: 2px solid #3205d6;
-         border-radius: 3px;
-         background-color: white;
-}
-    input[type=checkbox]:checked:after {
-         content: "";
-         display: block;
-         width: 15px;
-         height: 15px;
-         border: solid #3205d6;
-         border-width: 0 2px 2px 0;
-         -webkit-transform: rotate(45deg);
-         -ms-transform: rotate(45deg);
-         transform: rotate(45deg);
-         position: absolute;
-         top: 2px;
-         left: 6px;
-}
-</style>
-<body>
-        <nav style="background:#0FA3B1;"class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" style="color: white; "href="#">Schooly</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="login.html">login<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">about</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">contact</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    </ul>
-                </div>
-                </nav>
+
 <section style="margin: 1rem;">
     <div class="container">
         <div class="card bg-primary">
@@ -129,13 +55,13 @@ input[type=checkbox] {
                     <li><a href="">Add courses</a></li>
                     <li><a href="">Careers</a></li>
                     <li><a href="">Contact Us</a></li>
-                </ul>    
+                </ul>
             </div>
         </div>
 </div>
     <div class="copyright" style="background: rgb(9, 110, 119);">
             <p>©2020  Schooly. All Rights Reserved.</p>
-    </div>    
+    </div>
 </footer>
 </body>
 {% endblock %}

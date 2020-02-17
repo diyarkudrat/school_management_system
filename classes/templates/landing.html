@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 
 <style>
 * {
@@ -15,7 +19,7 @@
 }
 
 .hero-section{
-    color:white; 
+    color:white;
     background: url('https://i.postimg.cc/MH440MKZ/image-2.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -131,7 +135,7 @@ padding: 1rem;
       <section class="whyUs">
         <div class="container">
             <h1>Why Us</h1>
-            <div class="row">              
+            <div class="row">
                 <div class="col">
                     <img width="250" src="https://images.unsplash.com/photo-1574852859542-1b41217a7815?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="">
                 </div>
@@ -168,7 +172,7 @@ padding: 1rem;
                             </p>
                             <hr>
                             <p class="lead-4"><b>New York, NY</b></p>
-    
+
                         </div>
                   </div>
                   <div class="col">
@@ -180,7 +184,7 @@ padding: 1rem;
                             </p>
                             <hr>
                             <p class="lead-4"><b>San Diego, CA</b></p>
-    
+
                     </div>
                   </div>
               </div>
@@ -226,15 +230,15 @@ padding: 1rem;
                         <li><a href="add-course.html">Add courses</a></li>
                         <li><a href="">Careers</a></li>
                         <li><a href="">Contact Us</a></li>
-                    </ul>    
+                    </ul>
                 </div>
             </div>
-        </div>    
+        </div>
     </div>
     <!-- social media links -->
     <div class="row text-center m-3">
         <div class="col-3">
-            <i class="fab fa-twitter"></i>  
+            <i class="fab fa-twitter"></i>
         </div>
         <div class="col-3">
             <i class="fab fa-reddit"></i>
@@ -248,5 +252,6 @@ padding: 1rem;
     </div>
         <div class="copyright" style="background:rgb(11, 10, 124);">
                 <p>©2020  Schooly. All Rights Reserved.</p>
-</footer>   
+</footer>
+{% endblock %}
 </body>
