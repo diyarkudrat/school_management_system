@@ -8,6 +8,7 @@ from django.views.generic.list import ListView
 from .decorators import student_required
 from django.utils.decorators import method_decorator
 from .decorators import lecturer_required, student_required
+from .forms import CourseForm, AssignmentForm
 
 
 
@@ -130,7 +131,7 @@ class CourseCreateView(CreateView):
 
     def get(self, request, *args, **kwargs):
         context = {'form': CourseForm()}
-        return render(request, 'new_course.hmtl', context)
+        return render(request, 'add-course.html', context)
 
     def post(self, request, *args, **kwargs):
         form = CourseForm(request.POST)
@@ -138,14 +139,14 @@ class CourseCreateView(CreateView):
             player = form.save()
             return HttpResponseRedirect('course-list-page')
 
-        return render(request, 'new_course.html', {'form': form})
+        return render(request, 'add-course.html', {'form': form})
         
 @method_decorator([login_required], name='dispatch')
 class CourseDetailView(View):
 
     def get(self, request, *args, **kwargs):
-        player = get_object_or_404(Player, pk=kwargs['pk'])
-        context = {'player': player}
+        course = get_object_or_404(Course, pk=kwargs['pk'])
+        context = {'course': course}
         return render(request, 'course_detail.html', context)
 
 @method_decorator([login_required], name='dispatch')
@@ -198,7 +199,7 @@ class AssignmentDetailView(View):
         return render(request, 'assignment_detail.html', context)
 
 @method_decorator([login_required], name='dispatch')
-class AssignmentEditeView(UpdateView):
+class AssignmentEditView(UpdateView):
 
     model = Assignment 
     fields = ['name', 'description', 'course', 'assignment_type', 'total_points', 'assigned_date', 'due_date']

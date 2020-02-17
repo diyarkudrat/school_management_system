@@ -5,9 +5,9 @@ class CourseForm(forms.ModelForm):
 
     class Meta:
         model = Course 
-        fields = ('name', 'description')
+        fields = ('course_name', 'description' )
 
-class AssignmentForm(models.ModelForm):
+class AssignmentForm(forms.ModelForm):
 
     class Meta:
         model = Assignment 
