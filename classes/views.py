@@ -22,7 +22,7 @@ def home(request):
     students = Student.objects.all().count()
     staff = User.objects.filter(teacher_access=True).count()
     courses = Course.objects.all()
-    current_semester = Semester.objects.get(is_current_semester=True)
+    # current_semester = Semester.objects.get(is_current_semester=True)
 
     context = {
         'total_students': students,
