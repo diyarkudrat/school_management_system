@@ -1,0 +1,1 @@
+web: gunicorn schooly.wsgi --log-file -

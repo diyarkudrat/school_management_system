@@ -3,10 +3,11 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import User, Course, Semester, Student, Assignment
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView, View
 from django.views.generic.list import ListView
 from .decorators import student_required
 from django.utils.decorators import method_decorator
+from .decorators import lecturer_required, student_required
 
 
 
@@ -214,7 +215,7 @@ class AssignmentDeleteView(DeleteView):
     success_url = reverse_lazy('assignment-list-page')
 
 @login_required
-# @lecturer_required
+@lecturer_required
 def student_list(request):
     
     students = Student.objects.all()
@@ -227,7 +228,7 @@ def student_list(request):
     return render(request, 'student_list.html', context)
 
 @login_required
-# @lecturer_required
+@lecturer_required
 def staff_list(request):
 
     staff = User.objects.filter(teacher_access=True)
