@@ -17,13 +17,13 @@
 </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a class="navbar-brand" href="{% url dashboard-page %}">Schooly</a>
+            <a class="navbar-brand" href="{% url 'dashboard-page' %}">Schooly</a>
             <form class="form-inline ml-auto">
               {% if request.user.is_authenticated %}
                   <div class="text-white">Hello, {{ request.user.username }}</div>
                   <a href="{% url 'roster' %}" class="btn btn-warning ml-4">Roster</a>
                   <a href="{% url 'attendance' %}" class="btn btn-warning ml-4">Attendance</a>
-                  <a href="{% url 'schecule' %}" class="btn btn-warning ml-4">Schedule</a>
+                  <a href="{% url 'schedule' %}" class="btn btn-warning ml-4">Schedule</a>
                   <a href="{% url 'logout' %}" class="btn btn-danger ml-2">Log Out</a>
               {% else %}
                   <a href="{% url 'about' %}" class="btn btn-warning ml-4">About</a>
@@ -33,8 +33,47 @@
               {% endif %}
             </form>
           </nav>
-        <main role="main" class="container">
-        </main>
+          <footer class="bg-primary"style="color: white; ">
+          <div class="container" style="padding: 1rem;">
+              <div class="footer-row row">
+                  <div class="col">
+                      <h3>SCHOOLY</h3>
+                  </div>
+                  <div class="col">
+                      <ul>
+                          <li><a href="">Home</a></li>
+                          <li><a href="">About</a></li>
+                          <li><a href="">Assignments</a></li>
+                      </ul>
+                  </div>
+                  <div class="col">
+                      <ul>
+                          <li><a href="add-course.html">Add courses</a></li>
+                          <li><a href="">Careers</a></li>
+                          <li><a href="">Contact Us</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- social media links -->
+      <div class="row text-center m-3">
+          <div class="col-3">
+              <i class="fab fa-twitter"></i>
+          </div>
+          <div class="col-3">
+              <i class="fab fa-reddit"></i>
+          </div>
+          <div class="col-3">
+              <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="col-3">
+              <i class="fab fa-google"></i>
+          </div>
+      </div>
+          <div class="copyright" style="background:rgb(11, 10, 124);">
+                  <p>©2020  Schooly. All Rights Reserved.</p>
+  </footer>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

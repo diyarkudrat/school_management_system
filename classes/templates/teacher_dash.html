@@ -9,20 +9,7 @@ total students: {{ total_students }}<br>
 total teachers: {{ total_staff }}<br>
 
 total courses: {{ total_courses }}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student Dashboard |Schooly</title>
-    <!-- css externals -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- js externals -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</head>
+
 <style>
 *{
     font-family: Quicksand;
@@ -65,35 +52,7 @@ section{
     transition: ease .5s
 }
 </style>
-<body>
-<nav style="background:rgb(57, 55, 224);"class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" style="color: white; "href="#">Schooly</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="login.html">login<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Grades</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Attendance</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Assignments</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="add-course.html">Add Class</a>
-            </li>
 
-            </ul>
-            <a href="{% url 'logout' %}" class="btn btn-danger ml-2">Log Out</a>
-
-        </div>
-        </nav>
     <h1 style="text-align: center;">Student Dashboard</h1>
     <section id='student-info' style="background: rgb(35, 35, 35); color:white; padding: 1rem; margin: 2rem;">
         <div class="row">
@@ -103,7 +62,7 @@ section{
             <div class="col-8">
                 <h2>Alan Davis</h2>
                 <h3>I Teach: Computer Science and Back-end</h3>
-                
+
             </div>
         </div>
     </section>
@@ -120,42 +79,15 @@ section{
                     <option value="classes/attendance.html"> CS 1.2 | Monday, Friday 9am-12pm</option>
                     <option value="classes/attendance.html"> CS 1.2 | Monday, Friday 12pm-3pm</option>
                     <option value="classes/attendance.html"> CS 1.2 | Tuesday, Thursday 9am-12pm</option>
-            </select>            
+            </select>
             <select  onchange="location = this.value;">
                     <option selected disabled>Assignments</option>
                     <option value="classes/assignments.html"> CS 1.2 | Monday, Friday 9am-12pm</option>
                     <option value="classes/assignments.html"> CS 1.2 | Monday, Friday 12pm-3pm</option>
                     <option value="classes/attendance.html"> CS 1.2 | Tuesday, Thursday 9am-12pm</option>
-            </select>            
+            </select>
 
         </div>
     </section>
-    <footer style="background:#005fc5; color: white; ">
-            <div class="container" style="padding: 1rem;">
-                <div class="footer-row row">
-                    <div class="col">
-                        <h3>SCHOOLY</h3>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">About</a></li>
-                            <li><a href="">Assignments</a></li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li><a href="add-course.html">Add courses</a></li>
-                            <li><a href="">Careers</a></li>
-                            <li><a href="">Contact Us</a></li>
-                        </ul>    
-                    </div>
-                </div>
-        </div>
-            <div class="copyright" style="background:rgb(11, 10, 124);">
-                    <p>©2020  Schooly. All Rights Reserved.</p>
-            </div>    
-    </footer>            
-</body>
-</html>
+
 {% endblock %}
