@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
 </head>
 <style>
 .footer-row ul>li{
@@ -57,49 +59,80 @@
             </ul>
         </div>
 </nav>
-    <section style="margin: 5rem;">
-        <h1>Current Assignments</h1>
-        <div class="list-group">
-                <a type="button" data-toggle="modal" data-target="#exampleModal" class="list-group-item list-group-item-action bg bg-success">
-                    Make Wiki | 80/100 points
-                </a>
-                <button type="button"  data-toggle="modal" data-target="#exampleModal" class="list-group-item list-group-item-action bg-warning">
-                    Spaceman | Grade not assigned
-                </button>
-                <button type="button" data-toggle="modal" data-target="#exampleModal" class="list-group-item list-group-item-action">
-                    Django Tutorial | Due Monday May 16
-                </button>
-                <!-- Button trigger modal -->
+<section>
+        <div style ="padding:1rem;"class="container">
+            <h1 class="text-center mb-5">Assignments</h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Assignment</th>
+                    <th scope="col">Due</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Grade Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>BEW 1.2 | Dani Roxberry</td>
+                    <td><a type="button" data-toggle="modal" data-target="#exampleModal" style="color: blue;">Makewiki v2</a></td>
+                    <td>Feb 25</td>
+                    <td>/100</td>
+                    <td>Not graded <i  style="color:orange;"class="fas fa-circle"></i></td>
 
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Assignment details</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h1>Spaceman</h1>
-              <p>100 point assignment</p>
-              <h1>Description</h1>
-              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum iste deserunt nam iusto praesentium esse? Dolorum dolorem minus dignissimos sapiente
-                   voluptas facere pariatur veritatis corrupti velit assumenda! Esse, velit reiciendis?</p>
-
-            </div>
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div> -->
-          </div>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>CS 1.2 | Alan Davis</td>
+                    <td><a type="button" data-toggle="modal" data-target="#exampleModal" style="color: blue;">Tweet Generator</a></td>
+                    <td>March 3</td>
+                    <td>120/120</td>
+                    <td>Submitted <i  style="color:green;"class="fas fa-circle"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>SPD 1.3 | Adam Braus</td>
+                    <td><a type="button" data-toggle="modal" data-target="#exampleModal" style="color: blue;">Sprint Retrospective</a></td>
+                    <td>March 12</td>
+                    <td>120/120</td>
+                    <td>Submitted <i  style="color:green;"class="fas fa-circle"></i></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
-                
-    </div>
     </section>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Assignment details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h1>Makewiki v2</h1>
+            <p>Not graded <i  style="color:orange;"class="fas fa-circle"></i></p>
+            <h5>Class: <b>Dani Roxberry</b></h5>
+            <h5>Due Date: <b>Feb 25</b></h5>
+            <h5>Score: <b>/100</b></h5>
+            
+
+            <h1>Description</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum iste deserunt nam iusto praesentium esse? Dolorum dolorem minus dignissimos sapiente
+                voluptas facere pariatur veritatis corrupti velit assumenda! Esse, velit reiciendis?</p>
+
+        </div>
+        <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+        </div>
+    </div>
+    </div>
     <footer style="background: #0FA3B1; color: white; ">
             <div class="container" style="padding: 1rem;">
                 <div class="footer-row row">

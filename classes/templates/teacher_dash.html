@@ -40,19 +40,21 @@ total courses: {{ total_courses }}
 .student-grid{
     background:#007aff;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    padding: 1rem;
 }
 section{
     /* -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75); */
 }
-.student-grid a{
+.student-grid select{
     color:white;
+    height: 80%;
+
+    width: 60%;
     background:rgb(71, 71, 71);
-    padding: 12px;
-    width: 50%;
     border-radius: 3px;
     text-align: center;
     text-decoration: none;
@@ -84,7 +86,7 @@ section{
                 <a class="nav-link" href="#">Assignments</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Add Class</a>
+                <a class="nav-link" href="add-course.html">Add Class</a>
             </li>
 
             </ul>
@@ -96,24 +98,35 @@ section{
     <section id='student-info' style="background: rgb(35, 35, 35); color:white; padding: 1rem; margin: 2rem;">
         <div class="row">
             <div class="col-3">
-                <img style=" border-radius:100%; width: 80px;"src="https://yt3.ggpht.com/a/AGF-l7_k1lZ2v4ujHYzcZYiTXoBlnLsfsFrsGF1lBg=s288-c-k-c0xffffffff-no-rj-mo" alt="">
+                <img style=" border-radius:100%; width: 80px;"src="https://avatars2.githubusercontent.com/u/71125?s=460&v=4" alt="">
             </div>
             <div class="col-8">
-                <h2>Cassady Campbell</h2>
-                <h3>Track: Data Science</h3>
-                <h3>Progress: 65%</h3>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+                <h2>Alan Davis</h2>
+                <h3>I Teach: Computer Science and Back-end</h3>
+                
             </div>
         </div>
     </section>
     <section style="margin:2rem;">
         <div class="student-grid">
-            <a href="">Grades</a>
-            <a href="">Attendance</a>
-            <a href="assignment.html">Assignments</a>
-            <a href="add-course.html">Add Class</a>
+            <select onchange="location = this.value;">
+                <option selected disabled>Grades</option>
+                <option value="classes/grades.html"> CS 1.2 | Monday, Friday 9am-12pm</option>
+                <option value="classes/grades.html"> CS 1.2 | Monday, Friday 12pm-3pm</option>
+                <option value="classes/grades.html"> CS 1.2 | Tuesday, Thursday 9am-12pm</option>
+            </select>
+            <select  onchange="location = this.value;">
+                    <option selected disabled>Attendance</option>
+                    <option value="classes/attendance.html"> CS 1.2 | Monday, Friday 9am-12pm</option>
+                    <option value="classes/attendance.html"> CS 1.2 | Monday, Friday 12pm-3pm</option>
+                    <option value="classes/attendance.html"> CS 1.2 | Tuesday, Thursday 9am-12pm</option>
+            </select>            
+            <select  onchange="location = this.value;">
+                    <option selected disabled>Assignments</option>
+                    <option value="classes/assignments.html"> CS 1.2 | Monday, Friday 9am-12pm</option>
+                    <option value="classes/assignments.html"> CS 1.2 | Monday, Friday 12pm-3pm</option>
+                    <option value="classes/attendance.html"> CS 1.2 | Tuesday, Thursday 9am-12pm</option>
+            </select>            
 
         </div>
     </section>
