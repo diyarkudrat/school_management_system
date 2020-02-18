@@ -1,0 +1,198 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Schooly</title>
+    <!-- css externals -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- js externals -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+</head>
+<style>
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+.footer-row ul>li{
+    list-style-type: none;
+}
+.footer-row a{
+    color: white;
+}
+.copyright{
+    text-align: center;
+    padding: 5px;
+}
+
+.about-hero{
+    color:white; 
+    background: url('https://i.postimg.cc/gJWbHb4M/schooly-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:bottom;
+    padding: 7rem;
+}
+.who{
+    margin-bottom: 1rem;
+}
+.get-started{
+    color:white; 
+    background: url('https://i.postimg.cc/xdvRwwyN/collaborate.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    padding: 5.5rem;
+
+}
+.our-team{
+    margin: 2rem;
+}
+.success-stories img{
+    width:120px;
+    border-radius:100%
+}
+.success-stories{
+    margin:3rem;
+    padding: 2rem;
+}
+.cards{
+    border: .5px solid rgb(14, 66, 125);
+    border-radius: 3px;
+    margin:10px;
+    padding: 5px;
+}
+.contact{
+    margin: 3rem 10rem;
+}
+</style>
+<body>
+    <nav class=" bg-primary navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" style="color: white; "href="#">Schooly</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="login.html">login<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">about</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">contact</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+      <section class="about-hero jumbotron-fluid bg-primary">
+          <div class="container">
+            <h1 class="display-4">About</h1>
+            <h1 class="display-4">Schooly</h1>
+            <a href="" class="btn btn-lg btn-primary">Learn More</a>
+        </div>
+      </section>
+      <section class="our-team">
+          <div class="container">
+            <h1>Meet Our Team</h1>
+            <div class="row mt-4">
+                <div class="col">
+                    <img src="https://avatars1.githubusercontent.com/u/17442116?s=460&v=4" width="65%" alt="">
+                    <hr style="background:blue;">
+                    <p class="lead m-0">John Montejano</p>
+                    <p class="lead">Front End Web Dev</p>
+                </div>
+                <div class="col">
+                        <img src="https://avatars2.githubusercontent.com/u/71125?s=460&v=4" width="65%" alt="">
+                        <hr style="background:blue;">
+                        <p class="lead m-0">Alan Davis</p>
+                        <p class="lead">Back End Web Dev</p>
+                </div>
+                <div class="col">
+                    <img src="https://avatars0.githubusercontent.com/u/1196118?s=460&v=4" width="65%" alt="">
+                    <hr style="background:blue;">
+                    <p class="lead m-0">Ian Birnam</p>
+                    <p class="lead">Industry Speaker</p>
+                </div>
+            </div>
+          </div>
+      </section>
+      <section class="who">
+          <div class="container">
+              <h1 class="mb-5 text-center">Who is Schooly?</h1>
+              <div class="row">
+                  <div class="col">
+                      <p class="lead">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat aperiam laboriosam iusto corporis dolorum veniam autem accusamus recusandae quaerat! Pariatur quis iste impedit sapiente deleniti expedita nulla odio animi aspernatur.
+                      </p>
+                  </div>
+                  <div class="col">
+                      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80" width="100%" alt="">
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="get-started">
+        <div class="container">
+            <h1>Schooly Careers</h1>
+            <p class="lead">Our program includes student benefits</p>
+            <a href="" class="btn btn-primary btn-lg">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </section>
+    <footer class="bg-primary"style="color: white; ">
+        <div class="container" style="padding: 1rem;">
+            <div class="footer-row row">
+                <div class="col">
+                    <h3>SCHOOLY</h3>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Assignments</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li><a href="add-course.html">Add courses</a></li>
+                        <li><a href="">Careers</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>    
+                </div>
+            </div>
+        </div>    
+    </div>
+    <!-- social media links -->
+    <div class="row text-center m-3">
+        <div class="col-3">
+            <i class="fab fa-twitter"></i>  
+        </div>
+        <div class="col-3">
+            <i class="fab fa-reddit"></i>
+        </div>
+        <div class="col-3">
+            <i class="fab fa-linkedin"></i>
+        </div>
+        <div class="col-3">
+            <i class="fab fa-google"></i>
+        </div>
+    </div>
+        <div class="copyright" style="background:rgb(11, 10, 124);">
+                <p>©2020  Schooly. All Rights Reserved.</p>
+</footer>   
+</body>
