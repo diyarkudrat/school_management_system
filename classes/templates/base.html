@@ -17,17 +17,17 @@
 </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a class="navbar-brand" href="#">Schooly</a>
+            <a class="navbar-brand" href="{% url dashboard-page %}">Schooly</a>
             <form class="form-inline ml-auto">
               {% if request.user.is_authenticated %}
                   <div class="text-white">Hello, {{ request.user.username }}</div>
-                  <a href="#" class="btn btn-warning ml-4">Roster</a>
-                  <a href="#" class="btn btn-warning ml-4">Attendance</a>
-                  <a href="#" class="btn btn-warning ml-4">Schedule</a>
+                  <a href="{% url 'roster' %}" class="btn btn-warning ml-4">Roster</a>
+                  <a href="{% url 'attendance' %}" class="btn btn-warning ml-4">Attendance</a>
+                  <a href="{% url 'schecule' %}" class="btn btn-warning ml-4">Schedule</a>
                   <a href="{% url 'logout' %}" class="btn btn-danger ml-2">Log Out</a>
               {% else %}
-                  <a href="#" class="btn btn-warning ml-4">About</a>
-                  <a href="#" class="btn btn-warning ml-4">Contact</a>
+                  <a href="{% url 'about' %}" class="btn btn-warning ml-4">About</a>
+                  <a href="{% url 'contact' %}" class="btn btn-warning ml-4">Contact</a>
                   <a href="{% url 'login' %}" class="btn btn-secondary ml-2">Log In</a>
                   <a href="{% url 'signup-page' %}" class="btn btn-success ml-2">Sign Up</a>
               {% endif %}
