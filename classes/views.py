@@ -142,7 +142,7 @@ class CourseCreateView(CreateView):
         form = CourseForm(request.POST)
         if form.is_valid():
             player = form.save()
-            return HttpResponseRedirect('course-list-page')
+            return HttpResponseRedirect(reverse_lazy('home'))
 
         return render(request, 'add-course.html', {'form': form})
         
