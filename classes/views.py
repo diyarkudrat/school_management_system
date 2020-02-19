@@ -16,6 +16,11 @@ from .forms import CourseForm, AssignmentForm
 def landing_page(request):
     return render(request, 'landing.html')
 
+def about_page(request):
+    return render(request, 'about.html')
+
+def contact_page(request):
+    return render(request, 'contact.html')
 
 @login_required
 def home(request):
