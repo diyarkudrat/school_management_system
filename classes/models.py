@@ -103,6 +103,7 @@ class Assignment(models.Model):
 
 class Course(models.Model):
     course_name = models.CharField(max_length=150)
+    course_teacher = models.CharField(max_length=150, null=True)
     description = models.CharField(max_length=250)
     assigments = models.ManyToManyField(Assignment, blank=True, null=True, related_name="course_assignments")
 
