@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section style="text-align: center; margin:3rem;">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">FEW 1.2 Dani Roxberry| Grade: <p style="color:green; display: inline-block;">A</p></li>
-        <li class="list-group-item">CS 1.2 Alan Davis | Grade: <p style="color:rgb(227, 162, 11); display: inline-block;">D</p></li>
-        <li class="list-group-item">DS 1.4 Mitchell Hudson | Grade: <p style="color:green; display: inline-block;">B-</p></li>
-        <li class="list-group-item">MOB 1.2 Adrianna | Grade: <p style="color:green; display: inline-block;">B</p></li>
-      </ul>
-</section>
-
+  {% if courses %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Teacher</th>
+          <th scope="col">Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for course in courses %}
+        <tr>
+          <td href="#">{{ course.course.course_name }}</td>
+          <td>{{ course.course.course_teacher }}</td>
+          <td>{{ course.grade }}</td>
+          <td><a class="btn btn-link" href="{% url 'course-detail-page' course.id %}" role="button">View</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
 {% endblock %}

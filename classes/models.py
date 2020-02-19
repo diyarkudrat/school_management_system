@@ -123,6 +123,9 @@ class TakenCourse(models.Model):
     grade = models.CharField(choices=GRADE, max_length=1, blank=True)
     comment = models.CharField(choices=COMMENT, max_length=200, blank=True)
 
+    def __str__(self):
+        return self.course.course_name
+        
     def get_absolute_url(self):
         return reverse('update_score', kwargs={'pk': self.pk})
 

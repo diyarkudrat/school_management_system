@@ -4,6 +4,13 @@
 
 <b>Course Name:</b> {{ course.course_name }}<br>
 
-<b>Description:</b> {{ course.description }}
+<b>Teacher Name: </b> {{ course.course_teacher }}<br>
+
+<b>Description:</b> {{ course.description }}<br>
+
+<b>Assignments: </b>
+{% for specific_assignment in specific_assignments %}
+{{ specific_assignment.name }},
+{% endfor %}
 
 {% endblock %}

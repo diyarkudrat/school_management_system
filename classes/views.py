@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .models import User, Course, Semester, Student, Assignment
+from .models import User, Course, Semester, Student, Assignment, TakenCourse
 from django.views.generic import CreateView, UpdateView, DeleteView, View
 from django.views.generic.list import ListView
 from .decorators import student_required
@@ -121,11 +121,11 @@ def profile_update(request):
 @method_decorator([login_required], name='dispatch')
 class CourseListView(ListView):
     
-    model = Course
+    model = TakenCourse
 
     def get(self, request):
         courses = self.get_queryset()
-        return render(request, 'course_list.html', {
+        return render(request, 'grades.html', {
           'courses': courses,
         })
 
@@ -151,7 +151,8 @@ class CourseDetailView(View):
 
     def get(self, request, *args, **kwargs):
         course = get_object_or_404(Course, pk=kwargs['pk'])
-        context = {'course': course}
+        specific_assignments = Assignment.objects.filter(course=course)
+        context = {'course': course, 'specific_assignments': specific_assignments}
         return render(request, 'course_detail.html', context)
 
 @method_decorator([login_required], name='dispatch')
