@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<a class="btn btn-primary" href="{% url 'edit-course-page' course.id %}" role="button">Edit</a>
+<a class="btn btn-primary" href="{% url 'course-delete-page' course.id %}"  role="button">Delete</a>
+
 <b>Course Name:</b> {{ course.course_name }}<br>
 
 <b>Teacher Name: </b> {{ course.course_teacher }}<br>
@@ -9,9 +12,26 @@
 <b>Description:</b> {{ course.description }}<br>
 
 <b>Assignments: </b>
-{% for specific_assignment in specific_assignments %}
-{{ specific_assignment.name }},
-{% endfor %}
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for specific_assignment in specific_assignments %}
+        <tr>
+          <td href="#">{{ specific_assignment.name }}</td>
+          <td>{{ specific_assignment.assignment_type }}</td>
+          <td><a class="btn btn-link" href="#" role="button">View</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
 
 <a class="btn btn-outline-info" href="{% url 'assignment-create-page' %}" role="button">Add New Assignment</a>
 

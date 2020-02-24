@@ -168,7 +168,7 @@ class CourseDeleteView(DeleteView):
 
     model = Course
     template_name = 'course_delete.html'
-    success_url = reverse_lazy('course-list-page')
+    success_url = reverse_lazy('course-list')
 
 @method_decorator([login_required], name='dispatch')
 class AssignmentListView(ListView):
@@ -211,7 +211,7 @@ class AssignmentEditView(UpdateView):
     fields = ['name', 'description', 'course', 'assignment_type', 'total_points', 'assigned_date', 'due_date']
 
     template_name = 'assignment_edit.html'
-    success_url = reverse_lazy('assignment-list-page')
+    success_url = reverse_lazy('course-list')
 
 
 @method_decorator([login_required], name='dispatch')
