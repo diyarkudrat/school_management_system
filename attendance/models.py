@@ -1,5 +1,5 @@
 from django.db import models
-from classes.models import Course, Student
+from classes.models import Course, Student, User
 
 attendance_choices = (
     ('absent', 'Absent'),
@@ -11,7 +11,7 @@ attendance_choices = (
 class Attendance(models.Model):
 
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
-    student = models.ForeignKey(Student, on_delete = models.CASCADE)
+    student = models.ForeignKey(User, on_delete = models.CASCADE)
 
     attendance_status = models.CharField(max_length=20, choices=attendance_choices, blank=True)
 

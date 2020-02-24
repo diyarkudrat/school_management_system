@@ -186,15 +186,15 @@ class AssignmentCreateView(CreateView):
 
     def get(self, request, *args, **kwargs):
         context = {'form': AssignmentForm()}
-        return render(request, 'assignment_new.html', context)
+        return render(request, 'add-assignment.html', context)
 
     def post(self, request, *args, **kwargs):
         form = AssignmentForm(request.POST)
         if form.is_valid():
             assignment = form.save()
-            return HttpResponseRedirect(reverse_lazy('assignment-list-page'))
+            return HttpResponseRedirect(reverse_lazy('course-list'))
 
-        return render(request, 'assignment_new.html', {'form': form})
+        return render(request, 'add-assignment.html', {'form': form})
 
 @method_decorator([login_required], name='dispatch')
 class AssignmentDetailView(View):
