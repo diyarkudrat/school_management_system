@@ -121,7 +121,7 @@ def profile_update(request):
 @method_decorator([login_required], name='dispatch')
 class CourseListView(ListView):
     
-    model = TakenCourse
+    model = Course
 
     def get(self, request):
         courses = self.get_queryset()

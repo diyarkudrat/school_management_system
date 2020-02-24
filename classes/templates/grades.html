@@ -13,8 +13,8 @@
       <tbody>
         {% for course in courses %}
         <tr>
-          <td href="#">{{ course.course.course_name }}</td>
-          <td>{{ course.course.course_teacher }}</td>
+          <td href="#">{{ course.course_name }}</td>
+          <td>{{ course.course_teacher }}</td>
           <td>{{ course.grade }}</td>
           <td><a class="btn btn-link" href="{% url 'course-detail-page' course.id %}" role="button">View</a></td>
         </tr>
