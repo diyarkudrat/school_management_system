@@ -9,16 +9,14 @@ attendance_choices = (
 )
 
 
+
+
 class CourseAttendance(models.Model):
 
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
     date = models.DateField(null=True)
-    students = models.ManyToManyField(Student, through='Attendance', null=True)
-    # students = models.ManyToManyField(
-    #     'classes.Student',
-    #     through='Attendance',
-    #     through_fields=('course', 'student'),
-    # )
+    # students = models.ManyToManyField(Student, through='Attendance', null=True)
+    # students = models.ManyToManyField(Student, through=Attendance)
 
 class Attendance(models.Model):
 

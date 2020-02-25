@@ -26,7 +26,7 @@ def contact_page(request):
 def home(request):
 
     students = Student.objects.all().count()
-    staff = User.objects.filter(student_access=True).count()
+    staff = User.objects.filter(student_access=False).count()
     courses = Course.objects.all()
     # current_semester = Semester.objects.get(is_current_semester=True)
 

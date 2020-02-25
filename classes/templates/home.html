@@ -52,7 +52,9 @@ section{
                 <img style=" border-radius:100%; width: 80px;"src="https://cdn3.vectorstock.com/i/1000x1000/53/42/user-member-avatar-face-profile-icon-vector-22965342.jpg" alt="">
             </div>
             <div class="col-8">
-                <h2>Cassady Campbell</h2>
+                {% if request.user.is_authenticated %}
+                <h2>{{ request.user.username }}</h2>
+                {% endif %}
             </div>
         </div>
     </section>
