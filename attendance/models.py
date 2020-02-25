@@ -8,10 +8,22 @@ attendance_choices = (
     ('tardy', 'Tardy')
 )
 
-class Attendance(models.Model):
+
+class CourseAttendance(models.Model):
 
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
-    student = models.ForeignKey(User, on_delete = models.CASCADE)
+    date = models.DateField(null=True)
+    students = models.ManyToManyField(Student, through='Attendance', null=True)
+    # students = models.ManyToManyField(
+    #     'classes.Student',
+    #     through='Attendance',
+    #     through_fields=('course', 'student'),
+    # )
+
+class Attendance(models.Model):
+
+    course = models.ForeignKey(CourseAttendance, on_delete = models.CASCADE, null=True)
+    student = models.ForeignKey(Student, on_delete = models.CASCADE)
 
     attendance_status = models.CharField(max_length=20, choices=attendance_choices, blank=True)
 
