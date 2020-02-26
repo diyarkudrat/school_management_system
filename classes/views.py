@@ -142,7 +142,7 @@ class CourseCreateView(CreateView):
         form = CourseForm(request.POST)
         if form.is_valid():
             player = form.save()
-            return HttpResponseRedirect(reverse_lazy('home'))
+            return HttpResponseRedirect(reverse_lazy('course-list'))
 
         return render(request, 'add-course.html', {'form': form})
         
@@ -161,7 +161,7 @@ class CourseEditView(UpdateView):
     fields = ['course_name', 'description']
 
     template_name = 'course_edit.html'
-    success_url = reverse_lazy('course-list-page')
+    success_url = reverse_lazy('course-list')
 
 @method_decorator([login_required], name='dispatch')
 class CourseDeleteView(DeleteView):
