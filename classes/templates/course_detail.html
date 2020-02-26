@@ -5,18 +5,20 @@
 <a class="btn btn-primary" href="{% url 'edit-course-page' course.id %}" role="button">Edit</a>
 <a class="btn btn-primary" href="{% url 'course-delete-page' course.id %}"  role="button">Delete</a>
 
-<b>Course Name:</b> {{ course.course_name }}<br>
+<h2><b>Course Name:</b> {{ course.course_name }}</h2><br>
 
-<b>Teacher Name: </b> {{ course.course_teacher }}<br>
+<h2><b>Teacher Name: </b> {{ course.course_teacher }}</h2><br>
 
-<b>Description:</b> {{ course.description }}<br>
+<h2><b>Description:</b></h2> 
+  <p>{{ course.description }}</p><br>
 
-<b>Assignments: </b>
+<h3><b>Assignments: </b></h3>
 
     <table class="table">
       <thead>
         <tr>
           <th scope="col">Name</th>
+          <th scope="col">Type</th>
           <th scope="col">Grade</th>
         </tr>
       </thead>
@@ -25,6 +27,7 @@
         <tr>
           <td href="#">{{ specific_assignment.name }}</td>
           <td>{{ specific_assignment.assignment_type }}</td>
+          <td>/{{ specific_assignment.total_points }}</td>
           <td><a class="btn btn-link" href="#" role="button">View</a></td>
         </tr>
         {% endfor %}
