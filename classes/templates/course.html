@@ -36,6 +36,26 @@
               <p>Instructor: {{course.course_teacher}}</p>
               <h1>Description</h1>
               <p class="lead">{{ course.description }}</p>
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Grade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for specific_assignment in specific_assignments %}
+                  <tr>
+                    <td href="#">{{ specific_assignment.name }}</td>
+                    <td>{{ specific_assignment.assignment_type }}</td>
+                    <td>/{{ specific_assignment.total_points }}</td>
+                    <td><a class="btn btn-link" href="#" role="button">View</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
 ​
             </div>
             <!-- <div class="modal-footer">
