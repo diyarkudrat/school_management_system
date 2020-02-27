@@ -153,7 +153,7 @@ class CourseDetailView(View):
         course = get_object_or_404(Course, pk=kwargs['pk'])
         specific_assignments = Assignment.objects.filter(course=course)
         context = {'course': course, 'specific_assignments': specific_assignments}
-        return render(request, 'course_detail.html', context)
+        return render(request, 'course.html', context)
 
 @method_decorator([login_required], name='dispatch')
 class CourseEditView(UpdateView):
