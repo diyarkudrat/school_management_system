@@ -1,35 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-.footer-row ul>li{
-    list-style-type: none;
-}
-.footer-row a{
-    color: white;
-}
-.copyright{
-    text-align: center;
-    padding: 5px;
-}
-</style>
 
-
-<section style="margin: 4rem;">
-    <div class="row">
-        <h1>Student Courses</h1>
-        <button class="btn btn-success ml-auto">Add new course <i  style='margin-left: 3px;'class="fas fa-plus"></i></button>
+<body>
+    <div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Course</th>
+            <th scope="col">Instructor</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.course_name }}</a></td>
+            <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.course_teacher }}</a></td>
+            <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.description }}</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            FEW 1.2 | Mitchell Hudson
-        </li>
-        <li class="list-group-item">
-            MOB 1.5 | Dani Roxberry
-        </li>
-        <li class="list-group-item">
-            DS 1.2 | Dan Morse
-        </li>
-    </ul>
-</section>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Assignment details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h1>BEW 1.2</h1>
+              <p>Instructor: Dani Roxberry</p>
+              <h1>Description</h1>
+              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum iste deserunt nam iusto praesentium esse? Dolorum dolorem minus dignissimos sapiente
+                   voluptas facere pariatur veritatis corrupti velit assumenda! Esse, velit reiciendis?</p>
+​
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+</body>
+
 {% endblock %}
