@@ -10,14 +10,14 @@
             
             <th scope="col">Course</th>
             <th scope="col">Instructor</th>
-            <th scope="col">Description</th>
+            <!-- <th scope="col">Description</th> -->
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.course_name }}</a></td>
             <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.course_teacher }}</a></td>
-            <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.description }}</a></td>
+            <!-- <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.description }}</a></td> -->
           </tr>
         </tbody>
       </table>
@@ -32,11 +32,10 @@
               </button>
             </div>
             <div class="modal-body">
-              <h1>BEW 1.2</h1>
-              <p>Instructor: Dani Roxberry</p>
+              <h1>{{course.course_name}}</h1>
+              <p>Instructor: {{course.course_teacher}}</p>
               <h1>Description</h1>
-              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum iste deserunt nam iusto praesentium esse? Dolorum dolorem minus dignissimos sapiente
-                   voluptas facere pariatur veritatis corrupti velit assumenda! Esse, velit reiciendis?</p>
+              <p class="lead">{{ course.description }}</p>
 ​
             </div>
             <!-- <div class="modal-footer">
