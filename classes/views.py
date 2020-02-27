@@ -22,21 +22,17 @@ def about_page(request):
 def contact_page(request):
     return render(request, 'contact.html')
 
-@login_required
-def home(request):
 
-    students = Student.objects.all().count()
-    staff = User.objects.filter(student_access=False).count()
-    courses = Course.objects.all()
-    # current_semester = Semester.objects.get(is_current_semester=True)
+@method_decorator([login_required], name='dispatch')
+class HomeView(ListView):
+    
+    model = Course
 
-    context = {
-        'total_students': students,
-        'total_staff': staff,
-        'total_courses': courses
-    }
-
-    return render(request, 'home.html', context)
+    def get(self, request):
+        courses = self.get_queryset()
+        return render(request, 'home.html', {
+          'courses': courses,
+        })
 
 @login_required
 def profile(request):

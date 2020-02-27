@@ -73,23 +73,23 @@ section{
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                        <table class="table">
-                                <thead>
-                                  <tr>
-                                    
-                                    <th scope="col">Course</th>
-                                    <th scope="col">Type</th>
-                                    <!-- <th scope="col">Description</th> -->
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td><a href="{% url 'assignment-list' %}">{{ course.course_name }}</a></td>
-                                    <td><a href="{% url 'assignment-list' %}" >{{ course.course_teacher }}</a></td>
-                                    <!-- <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.description }}</a></td> -->
-                                  </tr>
-                                </tbody>
-                              </table>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Teacher</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for course in courses %}
+                      <tr>
+                        <td href="#">{{ course.course_name }}</td>
+                        <td>{{ course.course_teacher }}</td>
+                        <td><a class="btn btn-link" href="{% url 'course-detail-page' course.id %}" role="button">View</a></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
     
                 </div>
               </div>
@@ -103,22 +103,22 @@ section{
                     <div style ="padding:1rem;"class="container">
                         <h1 class="text-center mb-5">Attendance</h1>
                         <table class="table">
-                                <thead>
-                                  <tr>
-                                    
-                                    <th scope="col">Course</th>
-                                    <th scope="col">Type</th>
-                                    <!-- <th scope="col">Description</th> -->
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td><a href="{% url 'assignment-list' %}">{{ course.course_name }}</a></td>
-                                    <td><a href="{% url 'assignment-list' %}" >{{ course.course_teacher }}</a></td>
-                                    <!-- <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.description }}</a></td> -->
-                                  </tr>
-                                </tbody>
-                              </table>
+                          <thead>
+                            <tr>
+                              <th scope="col">Name</th>
+                              <th scope="col">Teacher</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for course in courses %}
+                            <tr>
+                              <td href="#">{{ course.course_name }}</td>
+                              <td>{{ course.course_teacher }}</td>
+                              <td><a class="btn btn-link" href="{% url 'course-detail-page' course.id %}" role="button">View</a></td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
                     </div>
     
                 </div>
