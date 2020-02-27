@@ -61,11 +61,68 @@ section{
     <section style="margin:2rem;">
         <div class="student-grid">
             <a href="{% url 'course-list' %}">Grades</a>
-            <a href="{% url 'course-list' %}">Attendance</a>
-            <a href="{% url 'course-list' %}">Assignments</a>
-            <a href="{% url 'course-list' %}">Classes</a>
+
+            <a type="button" data-toggle="modal" data-target="#attendanceModal">Attendance</a>
+            <a type="button" data-toggle="modal" data-target="#assignmentModal">Assignments</a>
+
 
         </div>
     </section>
-
+    <!-- Assignment MODAL -->
+    <div class="modal fade" id="assignmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                        <table class="table">
+                                <thead>
+                                  <tr>
+                                    
+                                    <th scope="col">Course</th>
+                                    <th scope="col">Type</th>
+                                    <!-- <th scope="col">Description</th> -->
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td><a href="{% url 'assignment-list' %}">{{ course.course_name }}</a></td>
+                                    <td><a href="{% url 'assignment-list' %}" >{{ course.course_teacher }}</a></td>
+                                    <!-- <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.description }}</a></td> -->
+                                  </tr>
+                                </tbody>
+                              </table>
+    
+                </div>
+              </div>
+            </div>
+    </div>
+    <!-- ATTENDANCE MODAL -->
+    <div class="modal fade" id="attendanceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <div style ="padding:1rem;"class="container">
+                        <h1 class="text-center mb-5">Attendance</h1>
+                        <table class="table">
+                                <thead>
+                                  <tr>
+                                    
+                                    <th scope="col">Course</th>
+                                    <th scope="col">Type</th>
+                                    <!-- <th scope="col">Description</th> -->
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td><a href="{% url 'assignment-list' %}">{{ course.course_name }}</a></td>
+                                    <td><a href="{% url 'assignment-list' %}" >{{ course.course_teacher }}</a></td>
+                                    <!-- <td><a type="button" data-toggle="modal" data-target="#exampleModal">{{ course.description }}</a></td> -->
+                                  </tr>
+                                </tbody>
+                              </table>
+                    </div>
+    
+                </div>
+              </div>
+            </div>
+    </div>
 {% endblock %}
