@@ -28,7 +28,7 @@
           <td href="#">{{ specific_assignment.name }}</td>
           <td>{{ specific_assignment.assignment_type }}</td>
           <td>/{{ specific_assignment.total_points }}</td>
-          <td><a class="btn btn-link" href="{% url 'assignment-detail-page' assignment.slug %}" role="button">View</a></td>
+          <td><a class="btn btn-link" href="{% url 'assignment-detail-page' specific_assignment.slug %}" role="button">View</a></td>
         </tr>
         {% endfor %}
       </tbody>
