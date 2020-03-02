@@ -14,7 +14,7 @@ urlpatterns = [
         path('courses/<int:pk>/edit/', views.CourseEditView.as_view(), name="edit-course-page"),
         path('assignments/', views.AssignmentListView.as_view(), name="assignment-list"),
         path('assignments/new/', views.AssignmentCreateView.as_view(), name='assignment-create-page'),
-        path('assignments/<int:pk>/', views.AssignmentDetailView.as_view(), name='assignment-detail-page'),
+        path('assignments/<str:slug>/', views.AssignmentDetailView.as_view(), name='assignment-detail-page'),
         path('assignments/<int:pk>/delete/', views.AssignmentDeleteView.as_view(),name='assignment-delete-page'),
         path('assignments/<int:pk>/edit/', views.AssignmentEditView.as_view(), name="edit-assignment-page"),
 

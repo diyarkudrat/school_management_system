@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import User, Course, Semester, Student, Assignment, TakenCourse
 from django.views.generic import CreateView, UpdateView, DeleteView, View
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from .decorators import student_required
 from django.utils.decorators import method_decorator
 from .decorators import lecturer_required, student_required
@@ -193,10 +194,11 @@ class AssignmentCreateView(CreateView):
         return render(request, 'add-assignment.html', {'form': form})
 
 @method_decorator([login_required], name='dispatch')
-class AssignmentDetailView(View):
+class AssignmentDetailView(DetailView):
+    model = Assignment
 
-    def get(self, request, *args, **kwargs):
-        assignment = get_object_or_404(Assignment, pk=kwargs['pk'])
+    def get(self, request, slug):
+        assignment = self.get_queryset().get(slug__iexact=slug)
         context = {'assignment': assignment}
         return render(request, 'assignment_detail.html', context)
 
@@ -215,7 +217,7 @@ class AssignmentDeleteView(DeleteView):
 
     model = Assignment 
     template_name = 'assignment_delete.html'
-    success_url = reverse_lazy('assignment-list-page')
+    success_url = reverse_lazy('course-list')
 
 @login_required
 @lecturer_required

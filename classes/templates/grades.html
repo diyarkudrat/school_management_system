@@ -16,7 +16,7 @@
           <td href="#">{{ course.course_name }}</td>
           <td>{{ course.course_teacher }}</td>
           <td>{{ course.grade }}</td>
-          <td><a class="btn btn-link" href="{% url 'course-detail-page' course.id %}" role="button">View</a></td>
+          <td><a class="btn btn-link" href="{% url 'course-detail-page' assignment.id %}" role="button">View</a></td>
         </tr>
         {% endfor %}
       </tbody>
