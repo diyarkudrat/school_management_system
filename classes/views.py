@@ -219,6 +219,17 @@ class AssignmentDeleteView(DeleteView):
     template_name = 'assignment_delete.html'
     success_url = reverse_lazy('course-list')
 
+@method_decorator([login_required], name='dispatch')
+class AssignmentGradeView(DetailView):
+    model = Assignment
+
+    def get(self, request, slug):
+        assignment = self.get_queryset().get(slug__iexact=slug)
+        students = Student.objects.all()
+        context = {'students': students, 'assignment': assignment}
+        return render(request, 'grade_assignment.html', context)
+
+
 @login_required
 @lecturer_required
 def student_list(request):

@@ -17,5 +17,6 @@ urlpatterns = [
         path('assignments/<str:slug>/', views.AssignmentDetailView.as_view(), name='assignment-detail-page'),
         path('assignments/<int:pk>/delete/', views.AssignmentDeleteView.as_view(),name='assignment-delete-page'),
         path('assignments/<int:pk>/edit/', views.AssignmentEditView.as_view(), name="edit-assignment-page"),
+        path('<str:slug>/assignment/grade/', views.AssignmentGradeView.as_view(), name="grade-assignment")
 
 ]

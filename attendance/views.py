@@ -26,6 +26,6 @@ class AttendanceView(View):
 
     def get(self, request, *args, **kwargs):
         course = get_object_or_404(Course, pk=kwargs['pk'])
-        students = Player.objects.all()
+        students = Student.objects.all()
         context = {'course': course, 'students': students}
         return render(request, 'course_detail.html', context)
