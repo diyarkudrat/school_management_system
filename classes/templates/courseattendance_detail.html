@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Course Name: <b>{{ course.course_name }}</b></h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for attendance in attendances %}
+      <tr>
+        <td href="#">{{ attendance.date}}</td>
+        <td><a class="btn btn-link" href="{% url 'attendance-detail-page' course.id %}" role="button">View</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
