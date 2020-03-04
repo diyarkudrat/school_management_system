@@ -11,4 +11,10 @@ class AssignmentForm(forms.ModelForm):
 
     class Meta:
         model = Assignment 
-        fields = ('name', 'description', 'course', 'assignment_type', 'total_points', 'assigned_date', 'due_date')
+        fields = ('name', 'students', 'description', 'course', 'assignment_type', 'total_points', 'assigned_date', 'due_date')
+
+class GradeAssignmentForm(forms.ModelForm):
+
+    class Meta:
+        model = Assignment
+        fields = ('earned_points',)

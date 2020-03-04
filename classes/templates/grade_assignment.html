@@ -3,13 +3,18 @@
 
 {% block content %}
 
-{{assignment.name}}<br>
+<h1>Name: </h1>  <h3><b>{{assignment.name}}</b></h3><br>
 
-{{ assignment.assignment_type }}<br>
+<h1>Type: </h1>  <h3><b>{{ assignment.assignment_type }}</b></h3><br>
 
-{{ assignment.description }}
+<h4>Description: </h4>  <h3><b>{{ assignment.description }}</b></h3>
+<br>
+<h4>Total Points: </h4>  <h3><b>{{ assignment.total_points }}</b></h3>
 
-<table class="table">
+<br>
+<br>
+
+<!-- <table class="table">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -20,13 +25,31 @@
       {% for student in students %}
       <tr>
         <td href="#">{{ student.user.username }}</td>
-        <td><input type="text" class="form-control" placeholder="Enter Grade"></td>
+        <td><input type="text" class="form-control" placeholder="Total Points Earned / {{assignment.total_points}}"></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a class="btn btn-success" href="{% url 'course-list' %}" role="button">Submit</a> -->
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Earned Points / {{ assignment.total_points }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for student in students %}
+        <td href="#">{{ student.user.username }}</td>
+        <td><input type="text" class="form-control" placeholder="Total Points Earned"></td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
   <a class="btn btn-success" href="{% url 'course-list' %}" role="button">Submit</a>
-
 
 
 {% endblock %}

@@ -7,7 +7,7 @@
 
 <h2><b>Course Name:</b> {{ course.course_name }}</h2><br>
 
-<h2><b>Teacher Namme: </b> {{ course.course_teacher }}</h2><br>
+<!-- <h2><b>Teacher Name: </b> {{ course.course_teacher }}</h2><br> -->
 
 <h2><b>Description:</b></h2>
   <p>{{ course.description }}</p><br>
@@ -19,6 +19,7 @@
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Type</th>
+          <th scope="col">Due Date</th>
           <th scope="col">Grade</th>
         </tr>
       </thead>
@@ -27,6 +28,7 @@
         <tr>
           <td href="#">{{ specific_assignment.name }}</td>
           <td>{{ specific_assignment.assignment_type }}</td>
+          <td>{{ specific_assignment.due_date }}</td>
           <td>/{{ specific_assignment.total_points }}</td>
           <td><a class="btn btn-link" href="{% url 'assignment-detail-page' specific_assignment.slug %}" role="button">View</a></td>
         </tr>

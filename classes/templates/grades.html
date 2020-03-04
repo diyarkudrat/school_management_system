@@ -6,19 +6,19 @@
       <thead>
         <tr>
           <th scope="col">Name</th>
-          <th scope="col">Teacher</th>
-          <th scope="col">Grade</th>
+          <!-- <th scope="col">Teacher</th>
+          <th scope="col">Grade</th> -->
         </tr>
       </thead>
       <tbody>
         {% for course in courses %}
         <tr>
           <td href="#">{{ course.course_name }}</td>
-          <td>{{ course.course_teacher }}</td>
-          <td>{{ course.grade }}</td>
+          <!-- <td>{{ course.course.course_teacher }}</td>
+          <td>{{course.course_average}}% | {{ course.grade }}</td> -->
           <td><a class="btn btn-link" href="{% url 'course-detail-page' course.id %}" role="button">View</a></td>
+          {% endfor %}
         </tr>
-        {% endfor %}
       </tbody>
     </table>
     <a class="btn btn-success" href="{% url 'course-create-page' %}" role="button">Add New Course</a>

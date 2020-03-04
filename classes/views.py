@@ -221,6 +221,7 @@ class AssignmentDeleteView(DeleteView):
 
 @method_decorator([login_required], name='dispatch')
 class AssignmentGradeView(DetailView):
+    
     model = Assignment
 
     def get(self, request, slug):
@@ -228,6 +229,15 @@ class AssignmentGradeView(DetailView):
         students = Student.objects.all()
         context = {'students': students, 'assignment': assignment}
         return render(request, 'grade_assignment.html', context)
+
+@method_decorator([login_required], name='dispatch')
+class AssignmentListView(ListView):
+
+    def get(self, request, *args, **kwargs):
+        course = get_object_or_404(Course, pk=kwargs['pk'])
+        assignments = Assignment.objects.filter(assignment__in=assignments, course=course)
+        context = {'course': course, 'assignments': assignments}
+        return render(request, 'assignments_list.html', context)
 
 
 @login_required

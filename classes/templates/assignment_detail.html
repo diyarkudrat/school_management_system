@@ -8,10 +8,15 @@
 
 <br>
 
-{{assignment.name}}<br>
+<h1>Name: </h1>  <h3><b>{{assignment.name}}</b></h3><br>
 
-{{ assignment.assignment_type }}<br>
+<h1>Type: </h1>  <h3><b>{{ assignment.assignment_type }}</b></h3><br>
 
-{{ assignment.description }}
+<h4>Description: </h4>  <h3><b>{{ assignment.description }}</b></h3>
+
+<br>
+<br>
+
+<a class="btn btn-warning" href="{% url 'grade-assignment-page' assignment.slug %}" role="button">Grade Assignment</a>
 
 {% endblock %}

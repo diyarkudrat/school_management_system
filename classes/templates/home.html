@@ -45,7 +45,7 @@ section{
 </style>
 
 
-    <h1 style="text-align: center;">Student Dashboard</h1>
+    <h1 style="text-align: center;">Teacher Dashboard</h1>
     <section id='student-info' style="background: rgb(35, 35, 35); color:white; padding: 1rem; margin: 2rem;">
         <div class="row">
             <div class="col-3">
@@ -53,7 +53,7 @@ section{
             </div>
             <div class="col-8">
                 {% if request.user.is_authenticated %}
-                <h2>{{ request.user.username }}</h2>
+                <h2> Hello There <b>{{ request.user.username }}!</b></h2>
                 {% endif %}
             </div>
         </div>
@@ -77,14 +77,14 @@ section{
                     <thead>
                       <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Teacher</th>
+                        <!-- <th scope="col">Teacher</th> -->
                       </tr>
                     </thead>
                     <tbody>
                       {% for course in courses %}
                       <tr>
                         <td href="#">{{ course.course_name }}</td>
-                        <td>{{ course.course_teacher }}</td>
+                        <!-- <td>{{ course.course_teacher }}</td> -->
                         <td><a class="btn btn-link" href="{% url 'course-detail-page' course.id %}" role="button">View</a></td>
                       </tr>
                       {% endfor %}
@@ -106,14 +106,14 @@ section{
                           <thead>
                             <tr>
                               <th scope="col">Name</th>
-                              <th scope="col">Teacher</th>
+                              <!-- <th scope="col">Teacher</th> -->
                             </tr>
                           </thead>
                           <tbody>
                             {% for course in courses %}
                             <tr>
                               <td href="#">{{ course.course_name }}</td>
-                              <td>{{ course.course_teacher }}</td>
+                              <!-- <td>{{ course.course_teacher }}</td> -->
                               <td><a class="btn btn-link" href="{% url 'course-detail-page' course.id %}" role="button">View</a></td>
                             </tr>
                             {% endfor %}

@@ -18,6 +18,9 @@ class CourseAttendance(models.Model):
     # students = models.ManyToManyField(Student, through='Attendance', null=True)
     # students = models.ManyToManyField(Student, through=Attendance)
 
+    def __str__(self):
+        return self.course.course_name + ' | ' + str(self.date)
+
 class Attendance(models.Model):
 
     course = models.ForeignKey(CourseAttendance, on_delete = models.CASCADE, null=True)

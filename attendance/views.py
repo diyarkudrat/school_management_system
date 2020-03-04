@@ -7,25 +7,14 @@ from django.views import View
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import DeleteView
 from django.http import HttpResponseRedirect
-from classes.models import Course, Student
+from .models import CourseAttendance, Attendance
 
 
 
-class CourseAttendanceView(View):
-
-   model = Course
-
-    def get(self, request):
-         course = self.get_queryset()
-        return render(request, 'attendance_list.html', {
-            'course': course
-        })
-
-
-class AttendanceView(View):
+class AttendanceCourseDetailView(View):
 
     def get(self, request, *args, **kwargs):
-        course = get_object_or_404(Course, pk=kwargs['pk'])
-        students = Student.objects.all()
+        course = get_object_or_404(CourseAttendance, pk=kwargs['pk'])
+        students = Attendance.objects.filter(course=course)
         context = {'course': course, 'students': students}
-        return render(request, 'course_detail.html', context)
+        return render(request, 'attendance_detail.html', context)
